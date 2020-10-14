@@ -3,19 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "fontsource-roboto": "^3.0.3",
+    "fontsource-ubuntu": "^3.0.9",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-jss": "^10.4.0",
     "react-scripts": "3.4.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
     "eject": "react-scripts eject",
-    "lint": "eslint src/*/**/*.{js,jsx} --quiet --fix"
+    "lint": "eslint --ext js,jsx src/"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -33,6 +36,11 @@
     ]
   },
   "devDependencies": {
-    "prettier": "^2.1.2"
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-json": "^2.1.2",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.1.2",
+    "react-app-rewire-alias": "^0.1.6",
+    "react-app-rewired": "^2.1.6"
   }
 }
