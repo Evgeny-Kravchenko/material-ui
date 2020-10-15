@@ -5,7 +5,7 @@ import 'fontsource-ubuntu';
 const PRIMARY_LIGHT_COLOR = '#cfff95';
 const PRIMARY_MAIN_COLOR = '#9ccc65';
 const PRIMARY_DARK_COLOR = '#6b9b37';
-const PRIMARY_TEXT_COLOR = '#000000';
+const PRIMARY_TEXT_COLOR = '#ffffff';
 
 const SECONDARY_LIGHT_COLOR = '#52c7b8';
 const SECONDARY_MAIN_COLOR = '#9ccc65';

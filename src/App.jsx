@@ -1,17 +1,24 @@
 import React from 'react';
 
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { CssBaseline, ThemeProvider, Grid } from '@material-ui/core';
 import theme from '@src/theme';
 
 import Header from '@components/header';
+import DayItem from '@components/day-item';
 
 function App() {
   return (
     <>
       <CssBaseline />
       <ThemeProvider theme={theme}>
-        <Header />
+        <Grid container>
+          <Grid item xs={12}>
+            <Header />
+          </Grid>
+          <Grid item xs={12}>
+            <DayItem />
+          </Grid>
+        </Grid>
       </ThemeProvider>
     </>
   );
