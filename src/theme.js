@@ -1,4 +1,7 @@
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import {
+  unstable_createMuiStrictModeTheme as createMuiTheme,
+  responsiveFontSizes,
+} from '@material-ui/core/styles';
 import 'fontsource-roboto';
 import 'fontsource-ubuntu';
 
@@ -64,9 +67,10 @@ let theme = createMuiTheme({
     h1: {
       fontFamily: "'Ubuntu', sans-serif",
       fontWeight: FONT_WEIGHT_MEDIUM,
-      fontSize: '6rem',
+      fontSize: '3rem',
       lineHeight: 1.167,
       letterSpacing: '-0.01562em',
+      color: PRIMARY_TEXT_COLOR,
     },
     body1: {
       fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
