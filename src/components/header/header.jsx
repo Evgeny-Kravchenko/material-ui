@@ -6,8 +6,10 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import EventIcon from '@material-ui/icons/Event';
 
-import MoreMenu from '@components/header/components//more-menu';
+import MoreMenu from '@components/header/components/more-menu';
+import Calendar from '@components/header/components/calendar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,11 +30,16 @@ const Header = () => {
   const ref = useRef(null);
   const classes = useStyles();
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
+  const [isCalendar, setCalendar] = useState(false);
 
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleMobileMenuOpen = () => {
     setMobileMoreAnchorEl(ref.current);
+  };
+
+  const handleCalendar = () => {
+    setCalendar(true);
   };
 
   return (
@@ -42,6 +49,14 @@ const Header = () => {
           <CurrentPlace />
           <div className={classes.grow} />
           <div className={classes.sectionMobile}>
+            <IconButton
+              aria-label="show more"
+              aria-haspopup="true"
+              onClick={handleCalendar}
+              color="inherit"
+            >
+              <EventIcon />
+            </IconButton>
             <IconButton
               aria-label="show more"
               aria-haspopup="true"
@@ -58,6 +73,7 @@ const Header = () => {
         isMobileMenuOpen={isMobileMenuOpen}
         setMobileMoreAnchorEl={setMobileMoreAnchorEl}
       />
+      <Calendar isCalendar={isCalendar} setCalendar={setCalendar} />
     </div>
   );
 };

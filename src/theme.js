@@ -1,7 +1,4 @@
-import {
-  unstable_createMuiStrictModeTheme as createMuiTheme,
-  responsiveFontSizes,
-} from '@material-ui/core/styles';
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import 'fontsource-roboto';
 import 'fontsource-ubuntu';
 
