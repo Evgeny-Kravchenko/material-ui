@@ -41,7 +41,7 @@ const Header = () => {
 
   return (
     <div className={classes.grow} ref={ref}>
-      <AppBar position="static">
+      <AppBar>
         <Toolbar>
           <CurrentPlace />
           <div className={classes.grow} />

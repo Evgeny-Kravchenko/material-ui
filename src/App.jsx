@@ -4,7 +4,7 @@ import { CssBaseline, ThemeProvider, Grid } from '@material-ui/core';
 import theme from '@src/theme';
 
 import Header from '@components/header';
-import DayItem from '@components/day-item';
+import DayList from '@components/days-list';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
             <Header />
           </Grid>
           <Grid item xs={12}>
-            <DayItem date={new Date().toDateString()} />
+            <DayList />
           </Grid>
         </Grid>
       </ThemeProvider>
