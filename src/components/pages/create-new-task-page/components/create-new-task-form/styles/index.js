@@ -11,6 +11,7 @@ const useStylePickers = makeStyles((theme) => ({
   root: {
     color: grey[600],
     textTransform: 'none',
+    paddingLeft: '0px',
     '&:focus': {
       color: theme.palette.primary.main,
     },
