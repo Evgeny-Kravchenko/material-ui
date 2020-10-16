@@ -20,12 +20,15 @@ const useStylesSvgIcon = makeStyles((theme) => ({
   },
 }));
 
-const useStylePickers = makeStyles({
+const useStylePickers = makeStyles((theme) => ({
   root: {
     color: grey[600],
     textTransform: 'none',
+    '&:focus': {
+      color: theme.palette.primary.main,
+    },
   },
-});
+}));
 
 const useStyleTextField = makeStyles({
   root: {
@@ -100,7 +103,7 @@ const CreateNewTaskForm = () => {
           onClick={() => handleCalendar(true, currentDate)}
           startIcon={<EventIcon />}
           disableRipple
-          size="small"
+          size="large"
         >
           {currentDate}
         </Button>
