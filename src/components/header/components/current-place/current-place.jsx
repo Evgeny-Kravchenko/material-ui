@@ -1,25 +1,21 @@
 import React from 'react';
-import { createUseStyles } from 'react-jss';
-import theme from '@src/theme';
-
 import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = createUseStyles({
+const useStyles = makeStyles((theme) => ({
   logo: {
-    color: 'gray',
     textAlign: 'center',
     padding: theme.spacing(10),
   },
-});
+}));
 
-const Logo = () => {
+const CurrentPlace = () => {
   const classes = useStyles();
-
   return (
     <Typography className={classes.logo} variant="h1">
-      Work assistant
+      Home
     </Typography>
   );
 };
 
-export default Logo;
+export default CurrentPlace;
