@@ -2,44 +2,18 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AccountCircle } from '@material-ui/icons';
 
-import {
-  TextField,
-  FormControl,
-  InputAdornment,
-  makeStyles,
-  Button,
-  Grid,
-} from '@material-ui/core';
+import { TextField, FormControl, InputAdornment, Button, Grid } from '@material-ui/core';
 import Calendar from '@components/local/header/components/calendar/calendar';
+import TimePickerComp from './components/time-picker';
 import EventIcon from '@material-ui/icons/Event';
-import { grey } from '@material-ui/core/colors';
-
-const useStylesSvgIcon = makeStyles((theme) => ({
-  root: {
-    fill: theme.palette.primary.dark,
-  },
-}));
-
-const useStylePickers = makeStyles((theme) => ({
-  root: {
-    color: grey[600],
-    textTransform: 'none',
-    '&:focus': {
-      color: theme.palette.primary.main,
-    },
-  },
-}));
-
-const useStyleTextField = makeStyles({
-  root: {
-    marginBottom: '20px',
-  },
-});
+import ScheduleIcon from '@material-ui/icons/Schedule';
+import { useStyleTextField, useStylePickers, useStylesSvgIcon } from './styles';
 
 const CreateNewTaskForm = () => {
   const svgIconClasses = useStylesSvgIcon();
   const textFiledClasses = useStyleTextField();
   const pickersClasses = useStylePickers();
+
   const [isCalendar, setCalendar] = useState(false);
   const [currentDate, setCurrentDate] = useState(
     new Date().toLocaleDateString('En-en', {
@@ -48,6 +22,8 @@ const CreateNewTaskForm = () => {
       year: 'numeric',
     })
   );
+  const [isTimePicker, setTimePicker] = useState(false);
+  const [currentTime, setCurrentTime] = useState("Time isn't selected");
   const { handleSubmit, register } = useForm();
 
   const onSubmit = (data) => {
@@ -58,6 +34,13 @@ const CreateNewTaskForm = () => {
     setCalendar(value);
     if (date) {
       setCurrentDate(date);
+    }
+  };
+
+  const handleTimePicker = (value, time) => {
+    setTimePicker(value);
+    if (time) {
+      setCurrentTime(time);
     }
   };
 
@@ -108,7 +91,21 @@ const CreateNewTaskForm = () => {
           {currentDate}
         </Button>
       </Grid>
+      <Grid item>
+        <Button
+          className={pickersClasses.root}
+          aria-label="calendar"
+          aria-haspopup="true"
+          onClick={() => handleTimePicker(true)}
+          startIcon={<ScheduleIcon />}
+          disableRipple
+          size="large"
+        >
+          {currentTime}
+        </Button>
+      </Grid>
       <Calendar isCalendar={isCalendar} handleCalendar={handleCalendar} />
+      <TimePickerComp isTimePicker={isTimePicker} handleTimePicker={handleTimePicker} />
     </FormControl>
   );
 };
