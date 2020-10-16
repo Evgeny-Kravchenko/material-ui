@@ -1,5 +1,5 @@
 import React from 'react';
-import DayItem from '@components/day-item';
+import DayItem from '@components/pages/days-list-page/components/day-item';
 import { Grid, Fab, makeStyles } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 
