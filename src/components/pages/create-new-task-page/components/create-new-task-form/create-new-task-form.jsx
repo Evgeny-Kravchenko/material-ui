@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { AccountCircle } from '@material-ui/icons';
 
-import { TextField, FormControl, InputAdornment, Button, Grid } from '@material-ui/core';
+import { AccountCircle } from '@material-ui/icons';
+import CloseIcon from '@material-ui/icons/Close';
+
+import {
+  TextField,
+  FormControl,
+  InputAdornment,
+  Button,
+  Grid,
+  IconButton,
+} from '@material-ui/core';
 import Calendar from '@components/local/header/components/calendar/calendar';
 import TimePickerComp from './components/time-picker';
 import EventIcon from '@material-ui/icons/Event';
@@ -42,6 +51,10 @@ const CreateNewTaskForm = () => {
     if (time) {
       setCurrentTime(time);
     }
+  };
+
+  const onClearTime = () => {
+    setCurrentTime("Time isn't selected");
   };
 
   return (
@@ -91,7 +104,7 @@ const CreateNewTaskForm = () => {
           {currentDate}
         </Button>
       </Grid>
-      <Grid item>
+      <Grid container item justify="space-between">
         <Button
           className={pickersClasses.root}
           aria-label="calendar"
@@ -103,6 +116,11 @@ const CreateNewTaskForm = () => {
         >
           {currentTime}
         </Button>
+        {currentTime !== "Time isn't selected" && (
+          <IconButton disableRipple onClick={onClearTime}>
+            <CloseIcon />
+          </IconButton>
+        )}
       </Grid>
       <Calendar isCalendar={isCalendar} handleCalendar={handleCalendar} />
       <TimePickerComp isTimePicker={isTimePicker} handleTimePicker={handleTimePicker} />
