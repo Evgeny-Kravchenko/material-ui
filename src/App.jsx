@@ -6,7 +6,7 @@ import theme from '@src/theme';
 
 import Header from '@components/local/header';
 import DayList from '@components/pages/days-list-page/components/days-list';
-import DaysListPage from '@components/pages/days-list-page';
+import CreateNewTaskPage from '@components/pages/create-new-task-page';
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
                 </Grid>
               </Route>
               <Route path="/create-new-task" exact>
-                <DaysListPage />
+                <CreateNewTaskPage />
               </Route>
             </Switch>
           </Grid>

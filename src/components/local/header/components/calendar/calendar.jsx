@@ -6,11 +6,27 @@ import { withStyles } from '@material-ui/core/styles';
 import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 
-const Calendar = ({ isCalendar, setCalendar }) => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+const dateOptions = {
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+};
+
+const Calendar = ({ isCalendar, handleCalendar }) => {
+  const [selectedDate, setSelectedDate] = useState(
+    new Date().toLocaleDateString('En-en', dateOptions)
+  );
 
   const handleDateChange = (date) => {
-    setSelectedDate(date);
+    setSelectedDate(date.toLocaleDateString('En-en', dateOptions));
+  };
+
+  const handleDateAccept = (date) => {
+    handleCalendar(false, date.toLocaleDateString('En-en', dateOptions));
+  };
+
+  const handleOnClose = () => {
+    handleCalendar(false);
   };
 
   return (
@@ -22,11 +38,11 @@ const Calendar = ({ isCalendar, setCalendar }) => {
         format="MM/dd/yyyy"
         onChange={handleDateChange}
         TextFieldComponent={() => null}
-        onOpen={() => setCalendar(true)}
-        onClose={() => setCalendar(false)}
         open={isCalendar}
         value={selectedDate}
         setSelectedDate={handleDateChange}
+        onAccept={handleDateAccept}
+        onClose={handleOnClose}
       />
     </MuiPickersUtilsProvider>
   );
@@ -34,7 +50,7 @@ const Calendar = ({ isCalendar, setCalendar }) => {
 
 Calendar.propTypes = {
   isCalendar: PropTypes.bool.isRequired,
-  setCalendar: PropTypes.func.isRequired,
+  handleCalendar: PropTypes.func,
 };
 
 export default withStyles(

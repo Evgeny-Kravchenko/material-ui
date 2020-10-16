@@ -35,8 +35,8 @@ const Header = () => {
     setMobileMoreAnchorEl(ref.current);
   };
 
-  const handleCalendar = () => {
-    setCalendar(true);
+  const handleCalendar = (value) => {
+    setCalendar(value);
   };
 
   return (
@@ -47,9 +47,9 @@ const Header = () => {
           <div className={classes.grow} />
           <div className={classes.sectionMobile}>
             <IconButton
-              aria-label="show more"
+              aria-label="calendar"
               aria-haspopup="true"
-              onClick={handleCalendar}
+              onClick={() => handleCalendar(true)}
               color="inherit"
             >
               <EventIcon />
@@ -70,7 +70,7 @@ const Header = () => {
         isMobileMenuOpen={isMobileMenuOpen}
         setMobileMoreAnchorEl={setMobileMoreAnchorEl}
       />
-      <Calendar isCalendar={isCalendar} setCalendar={setCalendar} />
+      <Calendar isCalendar={isCalendar} handleCalendar={handleCalendar} />
     </div>
   );
 };
