@@ -1,15 +1,12 @@
 import React, { useState, useRef } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 
-import CurrentPlace from '@components/header/components/current-place';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
+import { AppBar, Toolbar, IconButton, makeStyles } from '@material-ui/core';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import EventIcon from '@material-ui/icons/Event';
-
 import MoreMenu from '@components/header/components/more-menu';
 import Calendar from '@components/header/components/calendar';
+
+import CurrentPlace from '@components/header/components/current-place';
 
 const useStyles = makeStyles((theme) => ({
   root: {

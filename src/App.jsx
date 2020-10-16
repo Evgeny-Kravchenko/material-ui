@@ -16,7 +16,7 @@ function App() {
             <Header />
           </Grid>
           <Grid item xs={12}>
-            <DayItem />
+            <DayItem date={new Date().toDateString()} />
           </Grid>
         </Grid>
       </ThemeProvider>
